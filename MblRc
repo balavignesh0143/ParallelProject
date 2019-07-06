@@ -1,0 +1,123 @@
+package mobile.task;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+class Account 
+{
+	String type;
+	String name;
+	String address;
+	int balance;
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public int getBalance() {
+		return balance;
+	}
+	public void setBalance(int balance) {
+		this.balance = balance;
+	}
+	
+	
+	public Account(String type,String name,String address,int balance)
+	{
+		super();
+		this.type=type;
+		this.name=name;
+		this.address=address;
+		this.balance=balance;
+	}
+	
+	public String toString()
+	{
+		return "Account type="+type+",name="+name+",address="+address+",balance:"+balance;
+	}
+
+}
+
+public class MobileRecharge {
+	static int choice;
+	public static void main(String[] args) {
+		
+		HashMap<String,Account> hm=new HashMap<String,Account>();
+		
+		Account ac=new Account("Pre-paid","Balavignesh","Tiruppur",350);
+		Account ac1=new Account("Pre-paid","Parameswaran","Palladam",200);
+		Account ac2=new Account("Post-paid","Geetha","Tiruppur",100);
+		Account ac3=new Account("Pre-paid","Princess","Annur",500);
+		Account ac4=new Account("Post-paid","Saranya","Palladam",300);
+		hm.put("8807171248",ac);
+		hm.put("9344704125",ac1);
+		hm.put("9487165163",ac2);
+		hm.put("8680030689",ac3);
+		hm.put("9787960464",ac4);
+		do
+		{
+		System.out.println("Option 1 to show your details");
+		System.out.println("Option 2 for reacharge");
+		System.out.println("Option 3 for exit");
+		System.out.println("Enter your choice:");
+		@SuppressWarnings("resource")
+		Scanner sc=new Scanner(System.in);
+		choice=sc.nextInt();
+		switch(choice)
+		{
+		case 1:
+			System.out.println("Enter your mobile number:");
+			String mblNo=sc.next();
+			if(hm.containsKey(mblNo))
+			{
+				Account a=hm.get(mblNo);
+				System.out.println("Name of the type:"+a.getType());
+				System.out.println("Name of the customer:"+a.getName());
+				System.out.println("Customer address:"+a.getAddress());
+				System.out.println("Customer balance:"+a.getBalance());
+			}
+			else
+			{
+				System.out.println("Mobile number does not exists!!!");
+			}
+			break;
+		case 2:
+			System.out.println("Enter your mobile number:");
+			String mblNo1=sc.next();
+			if(hm.containsKey(mblNo1))
+			{
+				System.out.println("Enter the recharge amount:");
+				int amount1=sc.nextInt();
+				Account a1=hm.get(mblNo1);
+				int recharge1=a1.getBalance();
+				recharge1 += amount1;
+				a1.setBalance(recharge1);
+				System.out.println("Name of the customer:"+a1.getName());
+				System.out.println("Custer current balance:"+a1.getBalance());
+			}
+			else
+			{
+				System.out.println("Mobile number does not exists!!!");
+			}
+			break;
+		case 3:
+			System.out.println("Thanks for using!!!");
+			System.out.println("Exit...");
+			break;
+		}System.out.println("...........................................................");
+		}while(choice!=3);
+}
+}
