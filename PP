@@ -1,0 +1,182 @@
+package BankWallet;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+class Account
+{
+	String uName;
+	String pwd;
+	double balance;
+	
+	public String getuName() {
+		return uName;
+	}
+	public void setuName(String uName) {
+		this.uName = uName;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+	public double getBalance() {
+		return balance;
+	}
+	public void setBalance(int balance) {
+		this.balance = balance;
+	}
+	
+	public Account(String uName,String pwd,double balance)
+	{
+		this.uName=uName;
+		this.pwd=pwd;
+		this.balance=balance;
+	}
+	
+	public String toString()
+	{
+		return ""+uName+""+pwd+""+balance;
+	}
+	
+}
+public class WalletBank {
+	public static void main(String[] args) {
+		HashMap<Long,Account> h=new HashMap<Long,Account>();
+		
+		
+		
+		System.out.println("\t\t\tWelcome to XYZ Bank!!!!!");
+		Scanner sc=new Scanner(System.in);
+
+		String uName=null;
+		String pwd=null;
+		double balance=0.0;
+		Long mblNo = null;
+		Account a=new Account(uName,pwd,balance);
+		
+		h.put(mblNo,a);
+		
+		int option;
+		do
+		{
+		System.out.println("1)Create Account...");
+		System.out.println("2)Show Balance...");
+		System.out.println("3)Deposit...");
+		System.out.println("4)Withdraw...");
+		System.out.println("5)Fund Transfer...");
+		System.out.println("6)Print Transaction...");
+		System.out.println("7)Exit...");
+		System.out.println("Enter your option: ");
+		option=sc.nextInt();
+		
+		
+		switch(option)
+		{
+		
+		case 1:
+			System.out.println("Enter your user_name: ");
+			String uName1=sc.nextLine();
+			uName1=sc.nextLine();
+			System.out.println("Enter your mobile number: ");
+			long mblNo1=sc.nextLong();
+			System.out.println("Enter your e-mail_id: ");
+			String mail1=sc.nextLine();
+			mail1=sc.nextLine();
+			System.out.println("Enter your new password: ");
+			String pwd1=sc.next();
+			pwd1=sc.nextLine();
+			
+			System.out.println("User name: "+uName1);
+			System.out.println("Mobile Number: "+mblNo1);
+			System.out.println("Email ID: "+mail1);
+			System.out.println("Account created successfully!!!");
+			
+			break;
+				
+		case 2:
+			System.out.println("User name: ");
+			String uName2=sc.next();
+			System.out.println("Mobile number: ");
+			long mblNo2=sc.nextLong();
+			System.out.println("Password: ");
+			String pwd2=sc.next();
+			
+			Account a2=(Account) h.get(mblNo2);
+			double balance2=a2.getBalance();
+			
+			System.out.println("User name: "+uName2);
+			System.out.println("Mobile number: "+mblNo2);
+			System.out.println("Current balance: "+balance2);
+			
+			/*if(h.containsKey(mblNo2))
+			{
+				System.out.println("Password: ");
+				String pwd2=sc.next();
+				if(h.containsKey(pwd2))
+				{
+					System.out.println("User name: "+uName2);
+					System.out.println("Mobile number: "+mblNo2);
+					System.out.println("Current balance: "+balance);
+				}
+			}*/
+						
+			break;
+		
+		
+		case 3:
+			System.out.println("User name: ");
+			String uName3=sc.next();
+			System.out.println("Mobile number: ");
+			long mblNo3=sc.nextLong();
+			System.out.println("Password: ");
+			String pwd3=sc.next();
+			
+			break;
+		
+		
+		case 4:
+			System.out.println("User name: ");
+			String uName4=sc.next();
+			System.out.println("Mobile number: ");
+			long mblNo4=sc.nextLong();
+			System.out.println("Password: ");
+			String pwd4=sc.next();
+			
+			break;
+		
+		
+		case 5:
+			System.out.println("User name: ");
+			String uName5=sc.next();
+			System.out.println("Mobile number: ");
+			long mblNo5=sc.nextLong();
+			System.out.println("Password: ");
+			String pwd5=sc.next();
+			
+			break;
+		
+		
+		case 6:
+			System.out.println("User name: ");
+			String uName6=sc.next();
+			System.out.println("Mobile number: ");
+			long mblNo6=sc.nextLong();
+			System.out.println("Password: ");
+			String pwd6=sc.next();
+			
+			break;
+		
+		
+		case 7:
+			System.out.println("******************************************************************************");
+			System.out.println("\t\t\t\t\t     Exit!!!");
+			System.out.println("\t\t\t\t\tThanks for using...");
+			System.out.println("******************************************************************************");
+			
+			break;
+		}System.out.println("******************************************************************************************************");
+		}while(option!=7);
+	}
+}
